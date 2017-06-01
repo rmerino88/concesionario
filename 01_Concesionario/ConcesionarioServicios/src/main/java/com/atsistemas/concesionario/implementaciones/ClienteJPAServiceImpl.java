@@ -16,6 +16,8 @@ public class ClienteJPAServiceImpl implements ClienteService {
 	
 	ClienteJpaDao clienteJpaDao;
 	
+	//CAMBIO
+	
 	// Si no realizamos este Autowired el elemento ClienteJpaDao = null
 	@Autowired
 	public ClienteJPAServiceImpl(ClienteJpaDao clienteJpaDao) {
