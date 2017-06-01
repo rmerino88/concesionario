@@ -1,0 +1,122 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>com.atsistemas.concesionario</groupId>
+    <artifactId>01_Concesionario</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+  </parent>
+  <artifactId>ConcesionarioPresentacion</artifactId>
+  <packaging>war</packaging>
+  
+  <build>
+    <plugins>
+	  <plugin>
+		<artifactId>maven-war-plugin</artifactId>
+		<configuration>
+			<failOnMissingWebXml>false</failOnMissingWebXml>
+		</configuration>
+	  </plugin>
+	</plugins>
+  </build>
+  
+  <dependencies>
+	  <!-- https://mvnrepository.com/artifact/org.springframework/spring-webmvc -->
+	  <!-- Repositorio necesario para las anotaciones de RequestMapping -->
+	  <dependency>
+	    <groupId>org.springframework</groupId>
+	    <artifactId>spring-webmvc</artifactId>
+	    <version>4.3.8.RELEASE</version>
+	  </dependency>
+
+	<!-- https://mvnrepository.com/artifact/javax.servlet/servlet-api -->
+	<!-- Repositorio necesario para los HttpServletRequest... -->
+	<dependency>
+		<groupId>javax.servlet</groupId>
+		<artifactId>javax.servlet-api</artifactId>
+		<version>3.1.0</version>
+		<scope>provided</scope>
+	</dependency>
+
+	<!-- https://mvnrepository.com/artifact/javax.validation/validation-api -->
+	<!-- Repositorio necesario para utilizar las funcionalidades de validacion @Valid -->
+	<dependency>
+	    <groupId>javax.validation</groupId>
+	    <artifactId>validation-api</artifactId>
+	    <version>1.1.0.Final</version>
+	</dependency>
+	
+	<!-- https://mvnrepository.com/artifact/org.thymeleaf/thymeleaf-spring4 -->
+	<!-- Repositorio necesario para utilizar thymeleaf y las herramientas para construccion de html -->
+	<dependency>
+	    <groupId>org.thymeleaf</groupId>
+	    <artifactId>thymeleaf-spring4</artifactId>
+	    <version>3.0.6.RELEASE</version>
+	</dependency>
+	
+	<!-- https://mvnrepository.com/artifact/org.thymeleaf/thymeleaf-spring4 -->
+	<dependency>
+		<groupId>org.hibernate</groupId>
+		<artifactId>hibernate-validator</artifactId>
+		<version>5.2.4.Final</version>
+	</dependency>
+
+  	<dependency>
+		<groupId>com.atsistemas.concesionario</groupId>
+		<artifactId>ConcesionarioInterfaces</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</dependency>
+	 	
+	<!-- DEPENDENCIAS DEL MODULO DE CONFIG ANOTATION  - PARTE NO WEB -->
+  
+	<!-- Este repositorio es necesario para poder utilizar la BBDD Derby -->
+	<!-- https://mvnrepository.com/artifact/org.apache.derby/derby -->
+	<dependency>
+	    <groupId>org.apache.derby</groupId>
+	    <artifactId>derbyclient</artifactId>
+	    <version>10.11.1.1</version>
+	</dependency>
+	
+	<!-- https://mvnrepository.com/artifact/org.apache.commons/commons-dbcp2 -->
+	<!-- Este repositorio es necesario para la creación del datasource -->
+	<dependency>
+	    <groupId>org.apache.commons</groupId>
+	    <artifactId>commons-dbcp2</artifactId>
+	    <version>2.1.1</version>
+	</dependency>
+	
+	<!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-core -->
+	<dependency>
+	    <groupId>org.hibernate</groupId>
+	    <artifactId>hibernate-core</artifactId>
+	    <version>5.2.10.Final</version>
+	</dependency>  
+  
+  <!-- https://mvnrepository.com/artifact/javax.inject/javax.inject -->
+  <!-- Repositorio necesario para Hibernate -->
+  <dependency>
+	    <groupId>javax.inject</groupId>
+	    <artifactId>javax.inject</artifactId>
+	    <version>1</version>
+  </dependency>
+  
+  <!-- https://mvnrepository.com/artifact/javax.transaction/javax.transaction-api -->
+  <!-- Repositorio necesario para permitir las transacciones de persistencia -->
+  <dependency>
+		<artifactId>javax.transaction-api</artifactId>
+		<groupId>javax.transaction</groupId>
+		<version>1.2</version>
+  </dependency>
+  
+  
+	<!-- ??? No es necesario por que solamente se hace uso de las interfaces -->
+  	<dependency>
+		<groupId>com.atsistemas.concesionario</groupId>
+		<artifactId>ConcesionarioServicios</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</dependency>
+	
+  <!-- FIN DEPENDENCIAS DEL MODULO DE CONFIG ANOTATION - PARTE NO WEB -->
+  </dependencies>
+  
+    
+</project>

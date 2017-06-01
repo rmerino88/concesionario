@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Alta Cliente - Concesionario Raúl Merino</title>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"/> 
+    </head>
+    <body onload="document.getElementById('registro').style.display='block'">
+        
+        <!-- IMAGENES, no se hace el link -->
+		<div>
+      	<img th:src="@{/images/logoConcesionario.png}" th:alt-title="#{titulo.aplicacion}"/>
+    	</div>
+		
+        <!-- IMAGENES, no se hace el link -->
+		<div>
+      		<img src="../../images/logoConcesionario.png" th:attr="src=@{/images/logoConcesionario.png},title=#{titulo.aplicacion},alt=#{titulo.aplicacion}" />
+    	</div>
+        
+        <div id="registro" class = "w3-modal">
+            <div class="w3-modal-content">
+                <form class="w3-container" method="POST" th:object="${cliente}">
+                    
+                    <label class="w3-text-teal" th:text="#{cliente.nombre}"></label>
+                    <input class="w3-input" type="text" th:field="*{nombre}"/>
+
+                    <label class="w3-text-teal" th:text="#{cliente.telefono}"></label>
+                    <input class="w3-input" type="text" th:field="*{telefono}"/>
+
+                    <label class="w3-text-teal" th:text="#{cliente.correo}"></label>
+                    <input class="w3-input" type="text" th:field="*{correo}"/>
+					
+					<!-- Si se trata de MODIFICACION o BAJA se mostrarán los pedidos -->
+					
+					<input th:if="${accion} == 'ALTA'" class="w3-btn w3-blue-grey" type="submit" value="Registrar">
+					<input th:if="${accion} == 'BAJA'" class="w3-btn w3-blue-grey" type="submit" value="Baja">
+					<input th:if="${accion} == 'MODIFICACION'" class="w3-btn w3-blue-grey" type="submit" value="Modificar">
+					
+                </form>
+            </div>
+        </div>
+    </body>
+</html>

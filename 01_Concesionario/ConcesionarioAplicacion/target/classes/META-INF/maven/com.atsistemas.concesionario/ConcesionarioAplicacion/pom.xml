@@ -1,0 +1,71 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <parent>
+    <groupId>com.atsistemas.concesionario</groupId>
+    <artifactId>01_Concesionario</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+  </parent>
+  <artifactId>ConcesionarioAplicacion</artifactId>
+  
+  <dependencies>
+  	
+  	<dependency>
+		<groupId>com.atsistemas.concesionario</groupId>
+		<artifactId>ConcesionarioInterfaces</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</dependency>
+	
+	<dependency>
+		<groupId>com.atsistemas.concesionario</groupId>
+		<artifactId>ConcesionarioEntidades</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</dependency>
+  
+	<!-- Este repositorio es necesario para poder utilizar la BBDD Derby -->
+	<!-- https://mvnrepository.com/artifact/org.apache.derby/derby -->
+	<dependency>
+	    <groupId>org.apache.derby</groupId>
+	    <artifactId>derbyclient</artifactId>
+	    <version>10.11.1.1</version>
+	</dependency>
+	
+	<!-- https://mvnrepository.com/artifact/org.apache.commons/commons-dbcp2 -->
+	<!-- Este repositorio es necesario para la creación del datasource -->
+	<dependency>
+	    <groupId>org.apache.commons</groupId>
+	    <artifactId>commons-dbcp2</artifactId>
+	    <version>2.1.1</version>
+	</dependency>
+	
+	<!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-core -->
+	<dependency>
+	    <groupId>org.hibernate</groupId>
+	    <artifactId>hibernate-core</artifactId>
+	    <version>5.2.10.Final</version>
+	</dependency>
+	
+	
+	<!-- Necesario para la aplicacion para que las implementaciones sean accesible -->
+	<dependency>
+		<groupId>com.atsistemas.concesionario</groupId>
+		<artifactId>ConcesionarioPersistencia</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</dependency>
+  
+  
+  <!-- https://mvnrepository.com/artifact/javax.inject/javax.inject -->
+  <!-- Repositorio necesario para Hibernate -->
+  <dependency>
+	    <groupId>javax.inject</groupId>
+	    <artifactId>javax.inject</artifactId>
+	    <version>1</version>
+  </dependency>
+  
+  <dependency>
+		<artifactId>javax.transaction-api</artifactId>
+		<groupId>javax.transaction</groupId>
+		<version>1.2</version>
+  </dependency>
+ 
+  </dependencies>
+</project>

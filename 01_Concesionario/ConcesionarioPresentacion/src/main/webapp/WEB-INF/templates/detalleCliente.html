@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Alta Cliente - Concesionario Raúl Merino</title>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"/> 
+    </head>
+    <body onload="document.getElementById('registro').style.display='block'">
+        
+        <!-- IMAGENES, no se hace el link -->
+		<div>
+      	<img th:src="@{/images/logoConcesionario.png}" th:alt-title="#{titulo.aplicacion}"/>
+    	</div>
+		
+        <!-- IMAGENES, no se hace el link -->
+		<div>
+      		<img src="../../images/logoConcesionario.png" th:attr="src=@{/images/logoConcesionario.png},title=#{titulo.aplicacion},alt=#{titulo.aplicacion}" />
+    	</div>
+    	
+        <div id="registro" class="w3-container">
+        	
+        	<div class="w3-container w3-blue">
+			  <h2  th:if="${accion} == 'ALTA'" th:text="#{cliente.alta}"></h2>
+			  <h2  th:if="${accion} == 'MODIFICACION'" th:text="#{cliente.modificacion}"></h2>
+			  <h2  th:if="${accion} == 'BAJA'" th:text="#{cliente.baja}"></h2>
+			</div>
+			
+             <form class="w3-container" method="POST" th:object="${cliente}">
+                 <p>
+                 <label th:text="#{cliente.nombre}"></label>
+                 <input class="w3-input" type="text" th:field="*{nombre}"/></p>
+				 <p>
+                 <label th:text="#{cliente.telefono}"></label>
+                 <input class="w3-input" type="text" th:field="*{telefono}"/></p>
+				 <p>
+                 <label th:text="#{cliente.correo}"></label>
+                 <input class="w3-input" type="text" th:field="*{correo}"/></p>
+		
+				<!-- Si se trata de MODIFICACION o BAJA se mostrarán los pedidos -->
+				
+				<table th:if="${accion} == 'MODIFICACION' or ${accion} == 'BAJA'" class="w3-table-all">
+					<thead>
+				      <tr class="w3-blue">
+			        	  <th th:text="#{pedido.comercial}"/>
+		                  <th th:text="#{pedido.vehiculos}"/>
+		                  <th th:text="#{pedido.fecha}"/>
+		                  <th th:text="#{pedido.estado}"/>
+		                  <th th:text="#{comun.acciones}"/>
+				      </tr>
+				    </thead>
+				    <tbody>
+				    
+			        	<tr th:each="pedidos : ${list}">
+							<td th:type="text" th:text="*{comercial}"/>
+			            </tr>
+			         </tbody>
+				</table>
+				
+		
+				<input th:if="${accion} == 'ALTA'" class="w3-button w3-blue" type="submit" th:value="#{comun.alta}">
+				<input th:if="${accion} == 'BAJA'" class="w3-button w3-blue" type="submit" th:value="#{comun.baja}">
+				<input th:if="${accion} == 'MODIFICACION'" class="w3-button w3-blue" type="submit" th:value="#{comun.modificar}">
+			</form>
+             
+            </div>
+    </body>
+</html>

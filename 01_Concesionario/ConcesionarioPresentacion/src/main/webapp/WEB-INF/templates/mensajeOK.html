@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Alta Cliente OK - Concesionario Raúl Merino</title>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+        <style>
+		html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
+		</style> 
+    </head>
+    <body class="w3-light-grey">
+        
+        <!-- IMAGENES, no se hace el link -->
+		<div>
+      	<img th:src="@{/images/logoConcesionario.png}" th:alt-title="#{titulo.aplicacion}"/>
+    	</div>
+		
+        <!-- IMAGENES, no se hace el link -->
+		<div>
+      		<img src="../../images/logoConcesionario.png" th:attr="src=@{/images/logoConcesionario.png},title=#{titulo.aplicacion},alt=#{titulo.aplicacion}" />
+    	</div>
+        
+        <div class="w3-panel w3-blue" th:if="${accion} == 'ALTACLIENTE'">
+		    <h3 th:text="#{comun.accionOk}"></h3>
+		    <p th:text="#{cliente.altaOk}"></p>
+	  	</div>
+        <div class="w3-panel w3-blue" th:if="${accion} == 'BAJACLIENTE'">
+		    <h3 th:text="#{comun.accionOk}"></h3>
+		    <p th:text="#{cliente.bajaOk}"></p>
+	  	</div>
+        <div class="w3-panel w3-blue" th:if="${accion} == 'MODIFICACIONCLIENTE'">
+		    <h3 th:text="#{comun.accionOk}"></h3>
+		    <p th:text="#{cliente.modificacionOk}"></p>
+	  	</div>
+    </body>
+</html>
